@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ranking web search results without drowning in duplicates — Gungun Gupta</title>
+<meta name="description" content="Multi-query search, deduplication, and relevance scoring — the approach behind ScraperAgent's candidate search pipeline.">
+<link rel="canonical" href="https://YOURUSERNAME.github.io/blog/posts/ranking-web-search-results.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ranking web search results without drowning in duplicates">
+<meta property="og:description" content="Multi-query search, deduplication, and relevance scoring — the approach behind ScraperAgent's candidate search pipeline.">
+<meta property="og:url" content="https://YOURUSERNAME.github.io/blog/posts/ranking-web-search-results.html">
+<meta property="og:image" content="https://YOURUSERNAME.github.io/assets/img/og-image.svg">
+<meta property="article:published_time" content="2026-08-20T09:00:00+05:30">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#070a10">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Gungun Gupta — Writing" href="../../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      var system = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", saved || system);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<div class="progress" data-progress aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="icon-arrow-up-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 17 7 7M7 7h10M7 7v10"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header" data-header>
+  <div class="container header__inner">
+    <a class="brand" href="../../">
+      <span class="brand__mark" aria-hidden="true">G</span>
+      <span>Gungun Gupta</span>
+    </a>
+    <nav class="nav" data-nav aria-label="Primary">
+      <a class="nav__link" href="../../#about">About</a>
+      <a class="nav__link" href="../../#education">Education</a>
+      <a class="nav__link" href="../../#experience">Experience</a>
+      <a class="nav__link" href="../../projects/">Projects</a>
+      <a class="nav__link" href="../../#skills">Skills</a>
+      <a class="nav__link" href="../../blog/" aria-current="page">Writing</a>
+      <a class="nav__link" href="../../#contact">Contact</a>
+    </nav>
+    <div class="header__actions">
+      <button class="btn btn--ghost btn--icon theme-toggle" type="button"
+              data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+        <svg class="theme-toggle__moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+        <svg class="theme-toggle__sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+      </button>
+      <button class="nav-toggle" type="button" data-nav-toggle
+              aria-expanded="false" aria-label="Open menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <article class="article">
+    <div class="container container--prose">
+
+      <a class="article__back" href="../../blog/">
+        <svg aria-hidden="true"><use href="#icon-arrow-up-left"/></svg>
+        All writing
+      </a>
+
+      <header>
+        <div class="article__meta">
+          <time datetime="2026-08-20">20 August 2026</time>
+          <span>·</span>
+          <span>7 min read</span>
+        </div>
+
+        <h1 class="article__title">Ranking web search results without drowning in duplicates</h1>
+
+        <p class="article__lede">Multi-query search, deduplication, and relevance scoring — the approach behind ScraperAgent's candidate search pipeline.</p>
+
+        <ul class="pill-list article__tags">
+          <li class="pill">ai</li>
+          <li class="pill">backend</li>
+          <li class="pill">search</li>
+        </ul>
+      </header>
+
+      <div class="prose">
+
+        <p>
+          I built ScraperAgent to search the web for candidate profiles from a job
+          description. Writing that down taught me more than building it did, so
+          here are the four problems and how I got past each one.
+        </p>
+
+        <h2 id="one-query-is-one-opinion">One query is one opinion about a role</h2>
+
+        <p>
+          The obvious implementation is: take the job description, search it,
+          return results. The problem is that a search engine's ranking is a
+          single opinion about what the role means, and it's an opinion shaped by
+          whichever phrasing you happened to use.
+        </p>
+
+        <p>
+          A JD written as "Python developer with Django experience" and the same
+          JD written as "backend engineer, modern web frameworks" return almost
+          disjoint result sets. Neither is wrong. Together they're much closer to
+          the real candidate pool.
+        </p>
+
+        <p>
+          So the pipeline derives several queries from one job description — the
+          title as written, synonym variants, phrasings built from the required
+          skills — and runs them across more than one provider. The union covers
+          meaningfully more ground than any single query.
+        </p>
+
+        <blockquote>
+          <p>
+            This is the cheapest improvement in the whole system. It's also the
+            one most people skip, because a single query already returns results
+            and it's easy to mistake "results" for "results".
+          </p>
+        </blockquote>
+
+        <h2 id="dedup-is-the-hard-part">Deduplication is the hard part</h2>
+
+        <p>
+          Expand the search and one consequence dominates everything else: the
+          same person appears repeatedly. Different domains, different URLs,
+          sometimes slightly different spellings of the same name. A naive
+          implementation returns a top-ten list containing four people.
+        </p>
+
+        <p>
+          I tried matching on URL first, which is the obvious approach and the
+          wrong one. The same person genuinely is on their LinkedIn, their own
+          site, a conference speaker list, a company team page, and at least one
+          aggregator. Deduplicating by URL collapses none of that.
+        </p>
+
+        <p>Matching on normalised name plus any contact handle present in the
+        result text does much better. It's also where the bugs live:</p>
+
+        <ul>
+          <li>Two genuinely different people can share a common name.</li>
+          <li>One person's name is spelled differently across sources.</li>
+          <li>Unicode and punctuation variation that looks identical to a human.</li>
+        </ul>
+
+        <p>
+          Every fix for a false merge makes you slightly more likely to miss a
+          true one. There's no threshold that solves it, only better signals and
+          accepting that it'll be wrong sometimes.
+        </p>
+
+        <h2 id="filters-need-parsing-not-matching">Filters need parsing, not matching</h2>
+
+        <p>
+          This is the part that quietly ruins most search filters. Experience and
+          location are written by humans, and humans do not write them in a
+          canonical form.
+        </p>
+
+        <p>"5+ years experience" arrives as all of these:</p>
+
+        <ul>
+          <li><code>5+ years</code></li>
+          <li><code>5-8 yrs</code></li>
+          <li><code>six years</code></li>
+          <li><code>since 2019</code></li>
+          <li><code>3 years</code> (under-requirement, and you need to know that)</li>
+        </ul>
+
+        <p>
+          A literal string match throws most of these away, including people who
+          are perfect. The fix is to parse into a comparable numeric form so that
+          filters operate on numbers rather than text. Spelled-out numbers need
+          mapping; a year range needs converting to a duration against a reference
+          date.
+        </p>
+
+        <p>Locations have the same problem in a different shape. These all mean
+        the same place:</p>
+
+        <ul>
+          <li><code>Delhi NCR</code> · <code>New Delhi</code> · <code>Delhi, India</code> · <code>NCR</code> · <code>Delhi</code></li>
+        </ul>
+
+        <p>
+          An alias map resolves them. It's unglamorous, it needs maintaining as
+          new spellings appear, and it is the difference between a filter that
+          works and one that silently discards good candidates.
+        </p>
+
+        <h2 id="ranking-what-survives">Ranking what's left</h2>
+
+        <p>
+          After merging and filtering, surviving results get scored on fit against
+          the requested role, experience band, and location.
+        </p>
+
+        <p>
+          Here's the part I'd flag for anyone building this: I tuned these
+          heuristics before I had a way to score them. I was adjusting weights by
+          intuition and looking at individual results, which feels productive and
+          is close to worthless. I could tell that a change made one example look
+          better. I could not tell that it made the system better.
+        </p>
+
+        <p>
+          The fix is unglamorous: assemble a small labelled set of job
+          descriptions with known-good candidates, and measure precision@k against
+          it. Then the tuning is against evidence instead of vibes. I should have
+          built that first, before writing any ranking code.
+        </p>
+
+        <h2 id="cache-the-expensive-part">Cache the expensive part</h2>
+
+        <p>
+          Search APIs bill per call and take real time. Recruiters re-run the same
+          search constantly — a JD gets pasted, tweaked, and re-pasted. Caching on
+          a normalised form of the job description means the same search is paid
+          for once.
+        </p>
+
+        <p>
+          Beyond cost, it fixes the experience problem. A first search is a few
+          seconds of waiting across several providers. The second is instant. That
+          difference is most of what decides whether someone uses a tool twice or
+          stops.
+        </p>
+
+        <h2 id="summary">What I'd keep</h2>
+
+        <ul>
+          <li><strong>Multi-query, always.</strong> Largest coverage win per line of code.</li>
+          <li><strong>Parse filters, don't match strings.</strong> Silent data loss otherwise.</li>
+          <li><strong>Cache aggressively.</strong> Cheaper and faster.</li>
+          <li><strong>Evaluate before you tune.</strong> The one I keep skipping.</li>
+        </ul>
+
+        <p>
+          Deduplication is the one that rewards effort most and frustrates me
+          most. It is also the difference between a search result and a shortlist.
+        </p>
+
+        <hr>
+
+        <p>
+          <em>The full case study, including constraints and trade-offs, is in
+          <a href="../../projects/scraperagent.html">ScraperAgent</a>.</em>
+        </p>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© <span data-year>2026</span> Gungun Gupta · Built by hand, no templates</p>
+    <ul class="footer__links">
+      <li><a href="../../">Home</a></li>
+      <li><a href="../../projects/">Projects</a></li>
+      <li><a href="../../feed.xml">RSS</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

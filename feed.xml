@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gungun Gupta — Writing</title>
+    <link>https://YOURUSERNAME.github.io/blog/</link>
+    <description>Notes on AI/ML, NLP, search ranking, and automating SAP processes.</description>
+    <language>en</language>
+    <lastBuildDate>Thu, 20 Aug 2026 09:00:00 +0530</lastBuildDate>
+    <atom:link href="https://YOURUSERNAME.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <!-- One <item> per blog post. Newest first.
+         Keep the pubDate and post URL in sync with the post page. -->
+
+    <item>
+      <title>Ranking web search results without drowning in duplicates</title>
+      <link>https://YOURUSERNAME.github.io/blog/posts/ranking-web-search-results.html</link>
+      <guid isPermaLink="true">https://YOURUSERNAME.github.io/blog/posts/ranking-web-search-results.html</guid>
+      <description>Multi-query search, deduplication, and relevance scoring — plus the mistake I made by tuning the ranking before I had any way to measure it.</description>
+      <pubDate>Thu, 20 Aug 2026 09:00:00 +0530</pubDate>
+      <category>ai</category>
+    </item>
+
+    <item>
+      <title>When RAG actually helps a classifier</title>
+      <link>https://YOURUSERNAME.github.io/blog/posts/when-rag-helps-a-classifier.html</link>
+      <guid isPermaLink="true">https://YOURUSERNAME.github.io/blog/posts/when-rag-helps-a-classifier.html</guid>
+      <description>RAG isn't automatically an improvement. What it adds, when it earns its cost, and the three ablations I should have run before building it.</description>
+      <pubDate>Sat, 11 Jul 2026 09:00:00 +0530</pubDate>
+      <category>nlp</category>
+    </item>
+
+    <item>
+      <title>Driving SAP when there's no API to call</title>
+      <link>https://YOURUSERNAME.github.io/blog/posts/driving-sap-without-an-api.html</link>
+      <guid isPermaLink="true">https://YOURUSERNAME.github.io/blog/posts/driving-sap-without-an-api.html</guid>
+      <description>When SAP GUI automation is genuinely the right answer, when it's a stopgap, and the four failure modes to plan for before you record anything.</description>
+      <pubDate>Fri, 05 Jun 2026 09:00:00 +0530</pubDate>
+      <category>sap</category>
+    </item>
+
+  </channel>
+</rss>

@@ -1,0 +1,18 @@
+{
+  "name": "Gungun Gupta — Software Developer",
+  "short_name": "Gungun Gupta",
+  "description": "Portfolio of Gungun Gupta — SAP BTP automation and AI/ML systems in Python.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#070a10",
+  "theme_color": "#070a10",
+  "icons": [
+    {
+      "src": "assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

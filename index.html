@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============================================================
+     SITE IDENTITY  ◄◄◄  1. EDIT THESE, then the same values in
+     blog/index.html, projects/index.html, 404.html,
+     sitemap.xml, feed.xml and robots.txt
+     ============================================================ -->
+<title>Gungun Gupta — Software Developer | SAP BTP, AI/ML &amp; NLP</title>
+<meta name="description" content="Gungun Gupta is a software developer at HCLTech working on SAP BTP, SAP Build Process Automation, and AI/ML systems in Python. Projects, experience, and certifications.">
+<meta name="author" content="Gungun Gupta">
+<link rel="canonical" href="https://YOURUSERNAME.github.io/">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gungun Gupta — Software Developer | SAP BTP, AI/ML &amp; NLP">
+<meta property="og:description" content="SAP BTP automation, SAP Build Process Automation, and AI/ML systems in Python. Projects, experience, and certifications.">
+<meta property="og:url" content="https://YOURUSERNAME.github.io/">
+<meta property="og:image" content="https://YOURUSERNAME.github.io/assets/img/og-image.svg">
+<meta property="og:site_name" content="Gungun Gupta">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gungun Gupta — Software Developer">
+<meta name="twitter:description" content="SAP BTP automation and AI/ML systems in Python.">
+<meta name="twitter:image" content="https://YOURUSERNAME.github.io/assets/img/og-image.svg">
+
+<meta name="theme-color" content="#070a10">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Gungun Gupta — Writing" href="feed.xml">
+
+<!-- Fonts: preconnect, then load -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Apply the saved theme before first paint so there is no flash of dark
+     background on a light-theme reload. -->
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      var system = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", saved || system);
+    } catch (e) {}
+  })();
+</script>
+</head>
+
+<body>
+
+<!-- Icon sprite. Reference one with an SVG element whose href points at a
+     symbol id, e.g. href="#icon-mail". The full sprite only lives on this
+     page; subpages inline the two or three icons they need. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+    </symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="icon-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-up-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 17 7 7M7 7h10M7 7v10"/></symbol>
+    <symbol id="icon-location" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.4 5 18.4 5.3 18.4 5.3c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1a4.2 4.2 0 0 1 3.8-2.1c4 0 4.3 2.5 4.3 5.9V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.6 7.6L22.2 22h-6.2l-4.8-6.3L5.6 22H2.8l7-8.1L2 2h6.3l4.4 5.8zm-1 18.2h1.6L7.7 3.7H6z"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header" data-header>
+  <div class="container header__inner">
+
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">G</span>
+      <span>Gungun Gupta</span>
+    </a>
+
+    <nav class="nav" data-nav aria-label="Primary">
+      <a class="nav__link" href="#about">About</a>
+      <a class="nav__link" href="#education">Education</a>
+      <a class="nav__link" href="#experience">Experience</a>
+      <a class="nav__link" href="#projects">Projects</a>
+      <a class="nav__link" href="#skills">Skills</a>
+      <a class="nav__link" href="blog/">Writing</a>
+      <a class="nav__link" href="#contact">Contact</a>
+    </nav>
+
+    <div class="header__actions">
+      <button class="btn btn--ghost btn--icon theme-toggle" type="button"
+              data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+        <svg class="theme-toggle__moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+        <svg class="theme-toggle__sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+      </button>
+
+      <a class="btn btn--ghost btn--icon" href="cv/gungun-cv.pdf" download
+         aria-label="Download CV as PDF" title="Download CV (PDF)">
+        <svg class="btn__icon" aria-hidden="true"><use href="#icon-download"/></svg>
+      </a>
+
+      <button class="nav-toggle" type="button" data-nav-toggle
+              aria-expanded="false" aria-label="Open menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
+    <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <div class="container hero__inner hero__inner--portrait">
+
+      <div>
+        <p class="hero__status">
+          <span class="hero__status-dot" aria-hidden="true"></span>
+          Open to new opportunities
+        </p>
+
+        <h1 class="hero__title">Hi, I'm <em>Gungun</em></h1>
+
+        <p class="hero__role">
+          Software Developer @ HCLTech — SAP BTP, AI/ML &amp; NLP
+        </p>
+
+        <!-- Written from the SUMMARY section of your resume. Reword freely —
+             this is the one paragraph every visitor and every recruiter reads. -->
+        <p class="hero__summary">
+          I build process automations and AI systems. At HCLTech that means
+          automating SAP business processes end to end on SAP BTP and SAP Build
+          Process Automation. In my own time it means Python — a candidate
+          screening platform that finds and ranks real profiles, and an NLP
+          pipeline that classifies news with retrieval-augmented generation.
+          I care most about the part where the requirements are still fuzzy.
+        </p>
+
+        <div class="hero__actions btn-row">
+          <a class="btn btn--primary" href="cv/gungun-cv.pdf" download>
+            <svg class="btn__icon" aria-hidden="true"><use href="#icon-download"/></svg>
+            Download CV
+          </a>
+          <a class="btn btn--ghost" href="#projects">
+            View projects
+            <svg class="btn__icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        </div>
+
+        <!-- EDIT: add your city. Time zone is inferred from the phone number
+             in your resume — change it if you list a different location. -->
+        <div class="hero__meta">
+          <span class="hero__meta-item">
+            <svg aria-hidden="true"><use href="#icon-location"/></svg>
+            <!-- TODO: your city -->
+            India
+          </span>
+          <span class="hero__meta-item">
+            <svg aria-hidden="true"><use href="#icon-clock"/></svg>
+            UTC +05:30 · IST
+          </span>
+          <span class="hero__meta-item">
+            <svg aria-hidden="true"><use href="#icon-calendar"/></svg>
+            B.Tech CSE, 2025
+          </span>
+        </div>
+
+        <a class="hero__scroll" href="#about">
+          Scroll
+          <svg aria-hidden="true"><use href="#icon-arrow-down"/></svg>
+        </a>
+      </div>
+
+      <!-- Add your photo as assets/img/portrait.jpg (square crop, ~800px)
+           and replace this placeholder div with:
+           <img src="assets/img/portrait.jpg" width="800" height="800"
+                alt="Gungun Gupta" decoding="async"> -->
+      <div class="hero__portrait hero__portrait--placeholder" aria-hidden="true">
+        G
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== STATS =====================
+       Every number here is taken from your resume. Do not inflate them —
+       recruiters ask how you measured, and these are easy to check. -->
+  <section class="section section--tight" aria-label="At a glance">
+    <div class="container">
+      <ul class="stats reveal">
+        <li class="stats__item">
+          <div class="stats__value"><span data-count-to="4" data-count-suffix="">4</span></div>
+          <div class="stats__label">Certifications earned</div>
+        </li>
+        <li class="stats__item">
+          <div class="stats__value"><span data-count-to="3" data-count-suffix="">3</span></div>
+          <div class="stats__label">Projects built &amp; deployed</div>
+        </li>
+        <li class="stats__item">
+          <div class="stats__value"><span data-count-to="89" data-count-suffix="%">89%</span></div>
+          <div class="stats__label">Best model accuracy</div>
+        </li>
+        <li class="stats__item">
+          <div class="stats__value"><span data-count-to="9" data-count-suffix=" mo">9 mo</span></div>
+          <div class="stats__label">Shipping at HCLTech</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="split">
+        <div class="reveal">
+          <p class="section__eyebrow">01 — About</p>
+          <h2>A bit of context</h2>
+
+          <div class="section__lede">
+            <p>
+              I work on two things that happen to overlap more than people
+              expect: <strong>enterprise automation</strong> and
+              <strong>applied machine learning</strong>.
+            </p>
+            <p style="margin-top:var(--space-sm)">
+              At HCLTech I build automations on SAP BTP — extracting invoice data,
+              writing it out, triggering notifications, and driving the SAP GUI
+              itself where an API doesn't reach. Most of that work is less about
+              the interesting technology and more about being the person who
+              actually talks to the business team and works out which manual step
+              they're actually complaining about.
+            </p>
+            <p style="margin-top:var(--space-sm)">
+              The AI side is where I push myself hardest. My main project,
+              ScraperAgent, turns a job description into a ranked list of real
+              candidate profiles by searching, deduplicating, and scoring results
+              across multiple queries. I built it because I wanted to solve
+              something end to end — search, ranking, caching, a backend, a
+              frontend, and deployment — rather than a notebook that runs once.
+            </p>
+            <p style="margin-top:var(--space-sm)">
+              What I'm looking for next is a team where I can keep doing both
+              things, and go deeper on whichever one the business needs most.
+            </p>
+          </div>
+        </div>
+
+        <aside class="panel split--sticky reveal" aria-label="Quick facts">
+          <h3 class="panel__title">Quick facts</h3>
+          <ul class="contact-list">
+            <li class="contact-list__item">
+              <span class="contact-list__label">Role</span>
+              <span class="contact-list__value">Software Developer</span>
+            </li>
+            <li class="contact-list__item">
+              <span class="contact-list__label">Company</span>
+              <span class="contact-list__value">HCLTech</span>
+            </li>
+            <li class="contact-list__item">
+              <span class="contact-list__label">Focus</span>
+              <span class="contact-list__value">SAP BTP · AI/ML · NLP</span>
+            </li>
+            <li class="contact-list__item">
+              <span class="contact-list__label">Degree</span>
+              <span class="contact-list__value">B.Tech CSE, 80%</span>
+            </li>
+            <li class="contact-list__item">
+              <span class="contact-list__label">Languages</span>
+              <span class="contact-list__value">English, Hindi</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EDUCATION =====================
+       Placed above Experience because for an early-career developer this is
+       the first thing a recruiter filters on. -->
+  <section class="section" id="education">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">02 — Education</p>
+        <h2>Education</h2>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline__item reveal">
+          <span class="timeline__period">Nov 2021 — Jun 2025 · 80%</span>
+          <h3 class="timeline__role">B.Tech, Computer Science &amp; Engineering</h3>
+          <p class="timeline__org">Meerut Institute of Engineering and Technology</p>
+        </li>
+
+        <li class="timeline__item reveal">
+          <span class="timeline__period">Apr 2020 — Mar 2021 · 89.6%</span>
+          <h3 class="timeline__role">Intermediate (Senior Secondary)</h3>
+          <p class="timeline__org">Vardhman Academy</p>
+        </li>
+
+        <li class="timeline__item reveal">
+          <span class="timeline__period">Apr 2018 — Mar 2019 · 82%</span>
+          <h3 class="timeline__role">High School</h3>
+          <p class="timeline__org">Vardhman Academy</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">03 — Experience</p>
+        <h2>Where I've worked</h2>
+        <p class="section__lede">
+          The full detail is in the CV. This is the short version —
+          <a href="cv/gungun-cv.pdf" download>download the PDF</a> if you'd
+          rather read it all.
+        </p>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline__item timeline__item--current reveal">
+          <span class="timeline__period">Dec 2025 — Present</span>
+          <h3 class="timeline__role">Software Developer — SAP BTP</h3>
+          <p class="timeline__org">HCLTech</p>
+          <div class="timeline__content">
+            <ul>
+              <li>
+                Built SAP BTP automations that extract invoice data, write it to
+                Excel, and send automated email notifications to the right users —
+                replacing a manual, error-prone reporting routine.
+              </li>
+              <li>
+                Worked on SAP GUI automation, recording and capturing SAP
+                transactions so workflows can be driven end to end where no API
+                is available.
+              </li>
+              <li>
+                Created and configured Actions and Triggers in SAP Build Process
+                Automation, and developed the workflows behind them.
+              </li>
+              <li>
+                Owned the testing, debugging, and validation cycle for these
+                automations, so they execute reliably rather than just
+                successfully in a demo.
+              </li>
+              <li>
+                Gained hands-on exposure to SAP Joule and its use cases within the
+                SAP Business AI Platform.
+              </li>
+              <li>
+                Work directly with team members and business stakeholders to
+                clarify requirements and ship the automation enhancements they
+                actually need.
+              </li>
+            </ul>
+          </div>
+          <ul class="pill-list" style="margin-top:var(--space-2xs)">
+            <li class="pill">SAP BTP</li>
+            <li class="pill">SAP Build Process Automation</li>
+            <li class="pill">SAP Fiori / UI5</li>
+            <li class="pill">SAP GUI Automation</li>
+            <li class="pill">Python</li>
+            <li class="pill">REST APIs</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">04 — Projects</p>
+        <h2>Things I've built</h2>
+        <p class="section__lede">
+          Three projects, each with a full case study covering the problem, the
+          design decisions, and the results.
+        </p>
+      </div>
+
+      <div class="grid grid--2">
+
+        <article class="card card--link reveal">
+          <p class="card__subtitle">2026</p>
+          <h3 class="card__title">ScraperAgent</h3>
+          <p class="card__body">
+            An AI-powered candidate search and screening platform. Give it a job
+            description and it finds real candidate profiles across the web,
+            ranks them, removes duplicates, and caches identical queries. The
+            project I'm proudest of — a full backend, frontend, and deployment.
+          </p>
+          <ul class="card__tags">
+            <li class="pill">Python</li>
+            <li class="pill">FastAPI</li>
+            <li class="pill">JavaScript</li>
+            <li class="pill">Redis</li>
+            <li class="pill">Tavily</li>
+            <li class="pill">DuckDuckGo</li>
+            <li class="pill">Render</li>
+          </ul>
+          <p class="card__foot">
+            <span>Case study</span>
+            <svg class="card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+          </p>
+          <a class="card__stretch" href="projects/scraperagent.html">Read the ScraperAgent case study</a>
+        </article>
+
+        <article class="card card--link reveal">
+          <p class="card__subtitle">2026</p>
+          <h3 class="card__title">News Classifier with RAG</h3>
+          <p class="card__body">
+            An NLP classification system that combines TF-IDF feature extraction
+            with retrieval-augmented generation, so predictions are grounded in
+            retrieved context rather than the model's memory alone.
+          </p>
+          <ul class="card__tags">
+            <li class="pill">Python</li>
+            <li class="pill">scikit-learn</li>
+            <li class="pill">NLP</li>
+            <li class="pill">RAG</li>
+            <li class="pill">TF-IDF</li>
+          </ul>
+          <p class="card__foot">
+            <span>Case study</span>
+            <svg class="card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+          </p>
+          <a class="card__stretch" href="projects/news-classifier-rag.html">Read the News Classifier with RAG case study</a>
+        </article>
+
+        <article class="card card--link reveal">
+          <p class="card__subtitle">2025</p>
+          <h3 class="card__title">Predict AI</h3>
+          <p class="card__body">
+            A modular machine learning system supporting both classification and
+            regression, with predictions exposed over a REST API. Reached 89%
+            accuracy on datasets up to 2,000 records.
+          </p>
+          <ul class="card__tags">
+            <li class="pill">Python</li>
+            <li class="pill">scikit-learn</li>
+            <li class="pill">REST API</li>
+            <li class="pill">ML</li>
+          </ul>
+          <p class="card__foot">
+            <span>Case study</span>
+            <svg class="card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+          </p>
+          <a class="card__stretch" href="projects/predict-ai.html">Read the Predict AI case study</a>
+        </article>
+
+        <article class="card card--link reveal">
+          <p class="card__subtitle">Ongoing</p>
+          <h3 class="card__title">Writing</h3>
+          <p class="card__body">
+            Notes on what I'm building — search ranking, RAG, and automating SAP
+            transactions. Published here rather than on a platform that owns the
+            audience.
+          </p>
+          <ul class="card__tags">
+            <li class="pill">Writing</li>
+            <li class="pill">AI/ML</li>
+            <li class="pill">SAP</li>
+          </ul>
+          <p class="card__foot">
+            <span>Read the blog</span>
+            <svg class="card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+          </p>
+          <a class="card__stretch" href="blog/">Read all writing</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">05 — Skills</p>
+        <h2>Tools of the trade</h2>
+        <p class="section__lede">
+          Grouped the way your resume groups them. The levels are my honest
+          self-assessment — the ones I'd be comfortable being on call for.
+        </p>
+      </div>
+
+      <div class="grid grid--2">
+
+        <div class="panel reveal">
+          <h3 class="panel__title">Programming</h3>
+          <ul class="skill-list">
+            <li class="skill-list__item">
+              <div class="skill-list__top">
+                <span class="skill-list__name">Python</span>
+                <span class="skill-list__level">strongest</span>
+              </div>
+              <div class="skill-list__track"><div class="skill-list__fill" style="width:90%"></div></div>
+            </li>
+            <li class="skill-list__item">
+              <div class="skill-list__top">
+                <span class="skill-list__name">SQL</span>
+                <span class="skill-list__level">working</span>
+              </div>
+              <div class="skill-list__track"><div class="skill-list__fill" style="width:70%"></div></div>
+            </li>
+            <li class="skill-list__item">
+              <div class="skill-list__top">
+                <span class="skill-list__name">Java</span>
+                <span class="skill-list__level">working</span>
+              </div>
+              <div class="skill-list__track"><div class="skill-list__fill" style="width:65%"></div></div>
+            </li>
+            <li class="skill-list__item">
+              <div class="skill-list__top">
+                <span class="skill-list__name">C</span>
+                <span class="skill-list__level">foundational</span>
+              </div>
+              <div class="skill-list__track"><div class="skill-list__fill" style="width:55%"></div></div>
+            </li>
+            <li class="skill-list__item">
+              <div class="skill-list__top">
+                <span class="skill-list__name">JavaScript</span>
+                <span class="skill-list__level">working</span>
+              </div>
+              <div class="skill-list__track"><div class="skill-list__fill" style="width:65%"></div></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel reveal">
+          <h3 class="panel__title">Concepts &amp; Practices</h3>
+          <ul class="pill-list">
+            <li class="pill pill--accent">Machine Learning</li>
+            <li class="pill pill--accent">NLP</li>
+            <li class="pill pill--accent">RAG</li>
+            <li class="pill pill--accent">Data Analysis</li>
+            <li class="pill pill--accent">OOP</li>
+            <li class="pill pill--accent">DSA</li>
+            <li class="pill pill--accent">SDLC</li>
+            <li class="pill pill--accent">Testing &amp; Debugging</li>
+          </ul>
+        </div>
+
+        <div class="panel reveal">
+          <h3 class="panel__title">SAP</h3>
+          <ul class="pill-list">
+            <li class="pill pill--accent-2">SAP BTP</li>
+            <li class="pill pill--accent-2">SAP Build Process Automation</li>
+            <li class="pill pill--accent-2">SAP Fiori / UI5</li>
+            <li class="pill pill--accent-2">SAP GUI Automation</li>
+            <li class="pill pill--accent-2">SAP Joule</li>
+          </ul>
+        </div>
+
+        <div class="panel reveal">
+          <h3 class="panel__title">Frameworks, Tools &amp; Deployment</h3>
+          <ul class="pill-list">
+            <li class="pill">FastAPI</li>
+            <li class="pill">Flask</li>
+            <li class="pill">scikit-learn</li>
+            <li class="pill">Redis</li>
+            <li class="pill">REST APIs</li>
+            <li class="pill">Tavily API</li>
+            <li class="pill">Git</li>
+            <li class="pill">GitHub</li>
+            <li class="pill">Linux</li>
+            <li class="pill">Render</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CERTIFICATIONS ===================== -->
+  <section class="section" id="certifications">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">06 — Certifications</p>
+        <h2>Certified</h2>
+      </div>
+
+      <!-- EDIT: link each card to the certificate or course URL if you have
+           one. Adds real credibility — a verified link beats a claim. -->
+      <div class="grid grid--2">
+        <article class="card reveal">
+          <h3 class="card__title" style="font-size:var(--text-lg)">Positioning SAP Business AI Platform</h3>
+          <p class="card__subtitle">SAP Certified</p>
+          <p class="card__body">
+            Vendor certification on the SAP Business AI Platform — the same
+            platform that includes SAP Joule.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <h3 class="card__title" style="font-size:var(--text-lg)">Generative AI: The Ultimate Guide</h3>
+          <p class="card__subtitle">Udemy</p>
+          <p class="card__body">
+            Beginner to leader in AI — a structured path through generative AI
+            fundamentals, tooling, and applied use cases.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <h3 class="card__title" style="font-size:var(--text-lg)">Introduction to Data Science</h3>
+          <p class="card__subtitle">Infosys</p>
+          <p class="card__body">Foundational data science programme covering the core workflow and tooling.</p>
+        </article>
+
+        <article class="card reveal">
+          <h3 class="card__title" style="font-size:var(--text-lg)">Scientific Computing with Python</h3>
+          <p class="card__subtitle">freeCodeCamp</p>
+          <p class="card__body">Numerical and scientific Python — the practical foundation for ML work.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WRITING ===================== -->
+  <section class="section" id="writing">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">07 — Writing</p>
+        <h2>Recent notes</h2>
+        <p class="section__lede">
+          What I've been learning while building the projects above.
+          <a href="feed.xml">Subscribe via RSS</a>.
+        </p>
+      </div>
+
+      <!-- Keep these three in sync with blog/index.html, feed.xml, sitemap.xml -->
+      <div class="grid grid--3">
+
+        <article class="card card--link reveal">
+          <p class="card__subtitle"><time datetime="2026-08-20">20 Aug 2026</time></p>
+          <h3 class="card__title">Ranking web search results without drowning in duplicates</h3>
+          <p class="card__body">
+            Multi-query search, deduplication, and scoring — the approach behind
+            ScraperAgent's candidate pipeline.
+          </p>
+          <p class="card__foot">
+            <span>7 min read</span>
+            <svg class="card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+          </p>
+          <a class="card__stretch" href="blog/posts/ranking-web-search-results.html">Read: Ranking web search results without drowning in duplicates</a>
+        </article>
+
+        <article class="card card--link reveal">
+          <p class="card__subtitle"><time datetime="2026-07-11">11 Jul 2026</time></p>
+          <h3 class="card__title">When RAG actually helps a classifier</h3>
+          <p class="card__body">
+            Retrieval-augmented generation is not automatically an improvement.
+            What I learned building one on top of TF-IDF.
+          </p>
+          <p class="card__foot">
+            <span>6 min read</span>
+            <svg class="card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+          </p>
+          <a class="card__stretch" href="blog/posts/when-rag-helps-a-classifier.html">Read: When RAG actually helps a classifier</a>
+        </article>
+
+        <article class="card card--link reveal">
+          <p class="card__subtitle"><time datetime="2026-06-05">5 Jun 2026</time></p>
+          <h3 class="card__title">Driving SAP when there's no API to call</h3>
+          <p class="card__body">
+            What SAP GUI automation is actually good for, where it falls short,
+            and how I decide which one a process needs.
+          </p>
+          <p class="card__foot">
+            <span>5 min read</span>
+            <svg class="card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+          </p>
+          <a class="card__stretch" href="blog/posts/driving-sap-without-an-api.html">Read: Driving SAP when there's no API to call</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">08 — Contact</p>
+        <h2>Get in touch</h2>
+        <p class="section__lede">
+          Open to full-time roles, internships, and interesting side projects.
+          Email is the fastest way to reach me.
+        </p>
+      </div>
+
+      <div class="split">
+
+        <div class="panel reveal">
+          <h3 class="panel__title">Details</h3>
+          <ul class="contact-list">
+            <li class="contact-list__item">
+              <span class="contact-list__icon"><svg aria-hidden="true"><use href="#icon-mail"/></svg></span>
+              <span class="contact-list__label">Email</span>
+              <a class="contact-list__value" href="mailto:gungungupta526@gmail.com">gungungupta526@gmail.com</a>
+            </li>
+            <li class="contact-list__item">
+              <span class="contact-list__icon"><svg aria-hidden="true"><use href="#icon-phone"/></svg></span>
+              <span class="contact-list__label">Phone</span>
+              <a class="contact-list__value" href="tel:+917505841169">+91 75058 41169</a>
+            </li>
+            <li class="contact-list__item">
+              <span class="contact-list__icon"><svg aria-hidden="true"><use href="#icon-location"/></svg></span>
+              <span class="contact-list__label">Location</span>
+              <!-- TODO: your city -->
+              <span class="contact-list__value">India</span>
+            </li>
+            <li class="contact-list__item">
+              <span class="contact-list__icon"><svg aria-hidden="true"><use href="#icon-copy"/></svg></span>
+              <span class="contact-list__label">Copy</span>
+              <button class="contact-list__value btn btn--ghost" type="button"
+                      data-copy="gungungupta526@gmail.com" style="justify-self:end">
+                <span data-copy-label>Copy email</span>
+              </button>
+            </li>
+          </ul>
+
+          <h3 class="panel__title" style="margin-top:var(--space-md)">Elsewhere</h3>
+          <!--
+            TODO: replace YOURUSERNAME below with your real GitHub username.
+            Both are hyperlinked in your resume PDF but the URLs aren't
+            recoverable from the text — these are guesses based on your name.
+          -->
+          <div class="social-row">
+            <a class="btn btn--ghost" href="https://github.com/YOURUSERNAME" target="_blank" rel="noopener noreferrer">
+              <svg class="btn__icon" aria-hidden="true"><use href="#icon-github"/></svg>
+              GitHub
+              <svg class="btn__icon" aria-hidden="true"><use href="#icon-external"/></svg>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+            <a class="btn btn--ghost" href="https://linkedin.com/in/YOURUSERNAME" target="_blank" rel="noopener noreferrer">
+              <svg class="btn__icon" aria-hidden="true"><use href="#icon-linkedin"/></svg>
+              LinkedIn
+              <svg class="btn__icon" aria-hidden="true"><use href="#icon-external"/></svg>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+            <a class="btn btn--ghost" href="https://x.com/YOURUSERNAME" target="_blank" rel="noopener noreferrer">
+              <svg class="btn__icon" aria-hidden="true"><use href="#icon-x"/></svg>
+              X
+              <svg class="btn__icon" aria-hidden="true"><use href="#icon-external"/></svg>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          </div>
+        </div>
+
+        <!--
+          ►►►  FORM SETUP — pick one:
+          1. Leave action="#" as-is: the form validates, then opens the
+             visitor's email client with the message pre-filled. Works now,
+             no accounts, no spam.
+          2. Or paste a Formspree / Basin / Web3Forms endpoint into the
+             action attribute and it will POST directly.
+        -->
+        <form class="form reveal" data-contact-form action="#"
+              data-mailto="gungungupta526@gmail.com"
+              data-subject="Portfolio enquiry"
+              method="post" novalidate>
+
+          <!-- Honeypot: invisible to people, tempting to bots -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="company">Company (leave blank)</label>
+            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form__row">
+            <div class="field">
+              <label class="field__label" for="name">Name</label>
+              <input class="field__control" type="text" id="name" name="name"
+                     autocomplete="name" placeholder="Your name" required>
+              <p class="field__error" data-error-for="name" role="alert"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="email">Email</label>
+              <input class="field__control" type="email" id="email" name="email"
+                     autocomplete="email" placeholder="you@company.com" required>
+              <p class="field__error" data-error-for="email" role="alert"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="subject">Subject</label>
+            <input class="field__control" type="text" id="subject" name="subject"
+                   list="subject-options" placeholder="What is this about?">
+            <datalist id="subject-options">
+              <option value="Full-time opportunity"></option>
+              <option value="Internship"></option>
+              <option value="SAP BTP contract work"></option>
+              <option value="Collaboration on a project"></option>
+              <option value="Just saying hello"></option>
+            </datalist>
+            <p class="field__error" data-error-for="subject" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="message">Message</label>
+            <textarea class="field__control" id="message" name="message"
+                      placeholder="A few lines about the role or what you have in mind…"
+                      required minlength="10"></textarea>
+            <p class="field__hint">The more context you give, the better my first reply will be.</p>
+            <p class="field__error" data-error-for="message" role="alert"></p>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn--primary" type="submit">
+              <svg class="btn__icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+              Send message
+            </button>
+          </div>
+
+          <p class="form__status" data-form-status role="status" aria-live="polite"></p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>
+      © <span data-year>2026</span> Gungun Gupta · Built by hand, no templates
+    </p>
+    <ul class="footer__links">
+      <li><a href="cv/gungun-cv.pdf" download>CV (PDF)</a></li>
+      <li><a href="blog/">Writing</a></li>
+      <li><a href="projects/">Projects</a></li>
+      <li><a href="feed.xml">RSS</a></li>
+      <li><a href="mailto:gungungupta526@gmail.com">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

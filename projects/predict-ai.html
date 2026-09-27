@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Predict AI — ML Prediction System — Gungun Gupta</title>
+<meta name="description" content="A modular machine learning system supporting both classification and regression, with predictions exposed over a REST API. 89% accuracy on datasets up to 2,000 records.">
+<link rel="canonical" href="https://YOURUSERNAME.github.io/projects/predict-ai.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Predict AI — ML Prediction System">
+<meta property="og:description" content="A modular machine learning system supporting both classification and regression, with predictions exposed over a REST API. 89% accuracy on datasets up to 2,000 records.">
+<meta property="og:url" content="https://YOURUSERNAME.github.io/projects/predict-ai.html">
+<meta property="og:image" content="https://YOURUSERNAME.github.io/assets/img/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#070a10">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      var system = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", saved || system);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<div class="progress" data-progress aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="icon-arrow-up-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 17 7 7M7 7h10M7 7v10"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header" data-header>
+  <div class="container header__inner">
+    <a class="brand" href="../">
+      <span class="brand__mark" aria-hidden="true">G</span>
+      <span>Gungun Gupta</span>
+    </a>
+    <nav class="nav" data-nav aria-label="Primary">
+      <a class="nav__link" href="../#about">About</a>
+      <a class="nav__link" href="../#education">Education</a>
+      <a class="nav__link" href="../#experience">Experience</a>
+      <a class="nav__link" href="../projects/" aria-current="page">Projects</a>
+      <a class="nav__link" href="../#skills">Skills</a>
+      <a class="nav__link" href="../blog/">Writing</a>
+      <a class="nav__link" href="../#contact">Contact</a>
+    </nav>
+    <div class="header__actions">
+      <button class="btn btn--ghost btn--icon theme-toggle" type="button"
+              data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+        <svg class="theme-toggle__moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+        <svg class="theme-toggle__sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+      </button>
+      <button class="nav-toggle" type="button" data-nav-toggle
+              aria-expanded="false" aria-label="Open menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <article class="article">
+    <div class="container container--prose">
+
+      <a class="article__back" href="../projects/">
+        <svg aria-hidden="true"><use href="#icon-arrow-up-left"/></svg>
+        All projects
+      </a>
+
+      <header>
+        <div class="article__meta">
+          <span>2025</span>
+          <span>·</span>
+          <span>Machine Learning · API</span>
+        </div>
+
+        <h1 class="article__title">Predict AI — ML Prediction System</h1>
+
+        <p class="article__lede">A modular machine learning system that handles both classification and regression behind one interface, with predictions served over a REST API. Reached 89% accuracy on datasets of up to 2,000 records.</p>
+
+        <div class="btn-row" style="margin-top:var(--space-md)">
+          <a class="btn btn--ghost" href="https://github.com/YOURUSERNAME/predict-ai" target="_blank" rel="noopener noreferrer">
+            Source
+            <svg class="btn__icon" aria-hidden="true"><use href="#icon-external"/></svg>
+            <span class="visually-hidden">(opens in a new tab)</span>
+          </a>
+        </div>
+
+        <ul class="pill-list article__tags">
+          <li class="pill">Python</li>
+          <li class="pill">scikit-learn</li>
+          <li class="pill">REST API</li>
+          <li class="pill">Machine Learning</li>
+          <li class="pill">Classification</li>
+          <li class="pill">Regression</li>
+        </ul>
+      </header>
+
+      <div class="prose">
+
+        <h2 id="context">The context</h2>
+
+        <p>
+          This was my first end-to-end machine learning system, built while
+          finishing my B.Tech. Most ML examples in tutorials stop at "train a
+          model and print the accuracy score". The gap I wanted to close was
+          everything after that — the part that makes a model usable by someone
+          who isn't the person who trained it.
+        </p>
+
+        <h2 id="problem">The problem</h2>
+
+        <p>
+          Two related problems, both about the seam between a model and whoever
+          uses it:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Task fragmentation.</strong> Classification and regression are
+            usually taught as separate problems with separate codebases. A system
+            that needs to do both ends up with duplicated training, serving, and
+            validation logic.
+          </li>
+          <li>
+            <strong>The last mile.</strong> A trained model that isn't reachable
+            from an application is a file sitting on a laptop. If other software
+            can't call it, it isn't really a system.
+          </li>
+        </ul>
+
+        <h2 id="approach">The approach</h2>
+
+        <h3>One interface, two task types</h3>
+
+        <p>
+          The system is modular around a shared contract: data in, prediction
+          out, regardless of whether the underlying task is classification or
+          regression. Adding a task type means implementing one module rather than
+          restructuring the project — which was the point of building it this way
+          rather than as two scripts.
+        </p>
+
+        <h3>REST API for predictions</h3>
+
+        <p>
+          The model is served over a REST API rather than exposed as a library,
+          because that's how the rest of a real system consumes it. Response time
+          was a deliberate consideration: the API layer is thin, and the model is
+          loaded once rather than per request.
+        </p>
+
+        <blockquote>
+          <p>
+            Exposing a model over an API is a small amount of work that changes
+            who can use it. It's also the step tutorials skip, and it's the step
+            that turns a model into something you can put behind a product.
+          </p>
+        </blockquote>
+
+        <h2 id="results">Results</h2>
+
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>Value</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Peak accuracy</td><td>89%</td></tr>
+            <tr><td>Largest dataset handled</td><td>2,000 records</td></tr>
+            <tr><td>Task types supported</td><td>Classification + regression</td></tr>
+            <tr><td>Interface</td><td>REST API</td></tr>
+          </tbody>
+        </table>
+
+        <p>
+          89% is on a classification task. It's a real number but a modest one,
+          and I'd rather say that plainly than present it as a benchmark. The
+          dataset size is small — at 2,000 records the ceiling is set as much by
+          the data as by the model, and I was well aware of that while building
+          it.
+        </p>
+
+        <h2 id="differently">What I'd do differently</h2>
+
+        <ul>
+          <li>
+            <strong>Report a proper baseline comparison.</strong> 89% is only
+            interesting next to something else. Without a naive baseline in the
+            same table, the number doesn't say much.
+          </li>
+          <li>
+            <strong>Set up the experiment before tuning.</strong> I tuned against
+            the test set more than I should have. The reported figure is
+            therefore optimistic, and I'd want a held-out split to state it
+            honestly.
+          </li>
+          <li>
+            <strong>Add proper input validation at the API boundary.</strong> A
+            model endpoint that accepts any shape will fail confusingly at
+            inference time. Validating the request against what the model was
+            trained on is part of serving it properly.
+          </li>
+          <li>
+            <strong>Version the models.</strong> A trained model is a dependency.
+            I didn't track which model version backed a given prediction, which
+            made old results hard to reproduce.
+          </li>
+        </ul>
+
+      </div>
+
+      <hr>
+
+      <nav aria-label="More projects" style="display:grid;gap:var(--space-sm)">
+        <a class="card card--link" href="news-classifier-rag.html" style="padding:var(--space-sm) var(--space-md)">
+          <p class="card__subtitle">Previous project</p>
+          <span class="card__title">News Classifier with RAG</span>
+        </a>
+        <a class="card card--link" href="../" style="padding:var(--space-sm) var(--space-md)">
+          <p class="card__subtitle">Back to</p>
+          <span class="card__title">Homepage</span>
+        </a>
+      </nav>
+
+    </div>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© <span data-year>2026</span> Gungun Gupta · Built by hand, no templates</p>
+    <ul class="footer__links">
+      <li><a href="../">Home</a></li>
+      <li><a href="../projects/">Projects</a></li>
+      <li><a href="../blog/">Writing</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

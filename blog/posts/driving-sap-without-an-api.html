@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Driving SAP when there's no API to call — Gungun Gupta</title>
+<meta name="description" content="What SAP GUI automation is actually good for, where it falls short, and how to decide which one a process needs.">
+<link rel="canonical" href="https://YOURUSERNAME.github.io/blog/posts/driving-sap-without-an-api.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Driving SAP when there's no API to call">
+<meta property="og:description" content="What SAP GUI automation is actually good for, where it falls short, and how to decide which one a process needs.">
+<meta property="og:url" content="https://YOURUSERNAME.github.io/blog/posts/driving-sap-without-an-api.html">
+<meta property="og:image" content="https://YOURUSERNAME.github.io/assets/img/og-image.svg">
+<meta property="article:published_time" content="2026-06-05T09:00:00+05:30">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#070a10">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Gungun Gupta — Writing" href="../../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      var system = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", saved || system);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<div class="progress" data-progress aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="icon-arrow-up-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 17 7 7M7 7h10M7 7v10"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header" data-header>
+  <div class="container header__inner">
+    <a class="brand" href="../../">
+      <span class="brand__mark" aria-hidden="true">G</span>
+      <span>Gungun Gupta</span>
+    </a>
+    <nav class="nav" data-nav aria-label="Primary">
+      <a class="nav__link" href="../../#about">About</a>
+      <a class="nav__link" href="../../#education">Education</a>
+      <a class="nav__link" href="../../#experience">Experience</a>
+      <a class="nav__link" href="../../projects/">Projects</a>
+      <a class="nav__link" href="../../#skills">Skills</a>
+      <a class="nav__link" href="../../blog/" aria-current="page">Writing</a>
+      <a class="nav__link" href="../../#contact">Contact</a>
+    </nav>
+    <div class="header__actions">
+      <button class="btn btn--ghost btn--icon theme-toggle" type="button"
+              data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+        <svg class="theme-toggle__moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+        <svg class="theme-toggle__sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+      </button>
+      <button class="nav-toggle" type="button" data-nav-toggle
+              aria-expanded="false" aria-label="Open menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <article class="article">
+    <div class="container container--prose">
+
+      <a class="article__back" href="../../blog/">
+        <svg aria-hidden="true"><use href="#icon-arrow-up-left"/></svg>
+        All writing
+      </a>
+
+      <header>
+        <div class="article__meta">
+          <time datetime="2026-06-05">5 June 2026</time>
+          <span>·</span>
+          <span>5 min read</span>
+        </div>
+
+        <h1 class="article__title">Driving SAP when there's no API to call</h1>
+
+        <p class="article__lede">What SAP GUI automation is actually good for, where it falls short, and how to decide which one a process needs.</p>
+
+        <ul class="pill-list article__tags">
+          <li class="pill">sap</li>
+        </ul>
+      </header>
+
+      <div class="prose">
+
+        <p>
+          A fair amount of my work at HCLTech is automating SAP processes, and a
+          recurring question comes up early: <em>is there an API for this?</em>
+          Sometimes yes. Often, honestly, no — and then the choice is between
+          automating the GUI and telling the business the process can't be
+          automated as designed.
+        </p>
+
+        <h2 id="try-the-api-first">Try the API first. Always.</h2>
+
+        <p>
+          This isn't controversial, but it's worth saying because the temptation
+          runs the other way. If someone hands you a repetitive manual process, the
+          instinct can be to start recording screens — it feels productive, and
+          you can show something working in an afternoon.
+        </p>
+
+        <p>
+          Before recording anything, check what's already available: an OData or
+          REST service exposed by the system, an existing BTP destination, a
+          standard API on the transaction in question, or a BAPI function module
+          for older releases. Any of these will be more stable, faster to run, and
+          far easier to debug than a screen automation.
+        </p>
+
+        <h2 id="when-gui-automation-is-correct">When GUI automation is the right answer</h2>
+
+        <p>
+          It genuinely is the right answer more often than people admit:</p>
+
+        <ul>
+          <li>
+            <strong>No interface exists at all.</strong> A legacy transaction with
+            no service, no BAPI, and no OData. If the only way to get data out is
+            the screen, the screen is the API.
+          </li>
+          <li>
+            <strong>Business logic lives in the transaction.</strong> A custom
+            report or transaction that already computes the right answer. Reversing
+            that logic outside SAP is re-implementing it badly.
+          </li>
+          <li>
+            <strong>Access is authorised at the transaction level.</strong> The
+            user has a role that permits that transaction. An automation that calls
+            the transaction respects the same authorisation model the user does.
+          </li>
+          <li>
+            <strong>It's a stopgap.</strong> Sometimes the right answer is an
+            automation that works now while a proper interface gets built. The
+            important part is being explicit that it's a stopgap.
+          </li>
+        </ul>
+
+        <h2 id="the-failure-modes">The failure modes to plan for</h2>
+
+        <p>
+          A recorded screen automation is a promise that the screen stays the same.
+          Everything below is a way that promise breaks:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Layout changes.</strong> A field moves and the selector misses.
+            This is the one that will actually happen to you, and it's why
+            selectors need to be resilient — based on labels and structure rather
+            than fixed screen coordinates.
+          </li>
+          <li>
+            <strong>Pop-ups.</strong> Error dialogs, session timeouts, and "data has
+            changed" warnings. The automation needs to read the screen and decide,
+            not just follow a fixed script.
+          </li>
+          <li>
+            <strong>Timing.</strong> A slow transaction that times out, or a fast
+            one the automation types into too fast. Fixed sleeps are a bug; you want
+            to wait on actual state.
+          </li>
+          <li>
+            <strong>It fails silently.</strong> The most dangerous mode. A wrong
+            value entered into a field is worse than a crash, because a crash is
+            noticed.
+          </li>
+        </ul>
+
+        <blockquote>
+          <p>
+            A GUI automation that can quietly produce a wrong result is worse than
+            no automation, because people stop checking.
+          </p>
+        </blockquote>
+
+        <h2 id="validation">Validation is the actual work</h2>
+
+        <p>
+          Recording a transaction is easy. The work is in the rest:
+        </p>
+
+        <ul>
+          <li>Confirm the data landed where it should, not just that the script finished.</li>
+          <li>Fail loudly on any unexpected state, instead of continuing.</li>
+          <li>Log enough to reconstruct what happened when it goes wrong.</li>
+          <li>Test it against the ugly cases — a missing field, an unexpected
+              value, a session that expired mid-run.</li>
+        </ul>
+
+        <p>
+          On my current work, an automation extracts invoice data, writes it out,
+          and triggers notifications. The extraction is the part everyone asks
+          about. The validation is the part that determines whether anyone trusts
+          it next month.
+        </p>
+
+        <h2 id="on-sap-btp">Where SAP BTP fits</h2>
+
+        <p>
+          SAP BTP and SAP Build Process Automation sit between the two worlds, which
+          is why they're useful. Actions and Triggers give you an event-driven
+          layer with proper retry and error handling around it, while the actual
+          data movement can still be a call to an API, a BAPI, or a recorded
+          transaction when nothing else is exposed.
+        </p>
+
+        <p>
+          What it doesn't remove is the need to decide which of the three you're
+          using, and to be honest about it. An automation built on GUI recording
+          presented as an API integration is a problem that surfaces later, usually
+          during an incident.
+        </p>
+
+        <hr>
+
+        <p>
+          <em>More detail on the SAP side of my work in the
+          <a href="../../#experience">experience section</a>.</em>
+        </p>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© <span data-year>2026</span> Gungun Gupta · Built by hand, no templates</p>
+    <ul class="footer__links">
+      <li><a href="../../">Home</a></li>
+      <li><a href="../../projects/">Projects</a></li>
+      <li><a href="../../feed.xml">RSS</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

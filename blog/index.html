@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing — Gungun Gupta</title>
+<meta name="description" content="Notes from Gungun Gupta on AI/ML, NLP, search ranking, and automating SAP processes.">
+<link rel="canonical" href="https://YOURUSERNAME.github.io/blog/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Writing — Gungun Gupta">
+<meta property="og:description" content="Notes on AI/ML, NLP, search ranking, and automating SAP processes.">
+<meta property="og:url" content="https://YOURUSERNAME.github.io/blog/">
+<meta property="og:image" content="https://YOURUSERNAME.github.io/assets/img/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#070a10">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Gungun Gupta — Writing" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      var system = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", saved || system);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header" data-header>
+  <div class="container header__inner">
+    <a class="brand" href="../">
+      <span class="brand__mark" aria-hidden="true">G</span>
+      <span>Gungun Gupta</span>
+    </a>
+    <nav class="nav" data-nav aria-label="Primary">
+      <a class="nav__link" href="../#about">About</a>
+      <a class="nav__link" href="../#education">Education</a>
+      <a class="nav__link" href="../#experience">Experience</a>
+      <a class="nav__link" href="../projects/">Projects</a>
+      <a class="nav__link" href="../#skills">Skills</a>
+      <a class="nav__link" href="../blog/" aria-current="page">Writing</a>
+      <a class="nav__link" href="../#contact">Contact</a>
+    </nav>
+    <div class="header__actions">
+      <button class="btn btn--ghost btn--icon theme-toggle" type="button"
+              data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+        <svg class="theme-toggle__moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+        <svg class="theme-toggle__sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+      </button>
+      <a class="btn btn--ghost btn--icon" href="../cv/gungun-cv.pdf" download
+         aria-label="Download CV as PDF" title="Download CV (PDF)">
+        <svg class="btn__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></svg>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle
+              aria-expanded="false" aria-label="Open menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section section--tight">
+    <div class="container container--prose">
+      <p class="section__eyebrow reveal">Writing</p>
+      <h1 class="reveal">Notes from the workbench</h1>
+      <p class="section__lede reveal">
+        I write things down to work them out — mostly about the problems I hit
+        building the projects on the
+        <a href="../projects/">projects page</a>. A fair number of these posts are
+        largely a list of things I got wrong first, which is the most useful kind
+        of note I know how to write. Subscribe by <a href="../feed.xml">RSS</a>.
+      </p>
+
+      <!-- Add a new <article> at the top for each new post. Newest first. -->
+      <div class="grid" style="margin-top:var(--space-xl)">
+
+        <article class="card card--link reveal">
+          <p class="card__subtitle">
+            <time datetime="2026-08-20">20 Aug 2026</time> · 7 min read
+          </p>
+          <h2 class="card__title" style="font-size:var(--text-xl)">
+            Ranking web search results without drowning in duplicates
+          </h2>
+          <p class="card__body">
+            Multi-query search, deduplication, and relevance scoring — plus the
+            mistake I made by tuning the ranking before I had any way to measure it.
+          </p>
+          <ul class="card__tags">
+            <li class="pill">ai</li>
+            <li class="pill">backend</li>
+            <li class="pill">search</li>
+          </ul>
+          <p class="card__foot">
+            <span>Read post</span>
+            <svg class="card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+          </p>
+          <a class="card__stretch" href="posts/ranking-web-search-results.html">Read: Ranking web search results without drowning in duplicates</a>
+        </article>
+
+        <article class="card card--link reveal">
+          <p class="card__subtitle">
+            <time datetime="2026-07-11">11 Jul 2026</time> · 6 min read
+          </p>
+          <h2 class="card__title" style="font-size:var(--text-xl)">
+            When RAG actually helps a classifier
+          </h2>
+          <p class="card__body">
+            RAG isn't automatically an improvement. What it adds, when it earns its
+            cost, and the three ablations I should have run before building it.
+          </p>
+          <ul class="card__tags">
+            <li class="pill">ai</li>
+            <li class="pill">nlp</li>
+          </ul>
+          <p class="card__foot">
+            <span>Read post</span>
+            <svg class="card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+          </p>
+          <a class="card__stretch" href="posts/when-rag-helps-a-classifier.html">Read: When RAG actually helps a classifier</a>
+        </article>
+
+        <article class="card card--link reveal">
+          <p class="card__subtitle">
+            <time datetime="2026-06-05">5 Jun 2026</time> · 5 min read
+          </p>
+          <h2 class="card__title" style="font-size:var(--text-xl)">
+            Driving SAP when there's no API to call
+          </h2>
+          <p class="card__body">
+            When SAP GUI automation is genuinely the right answer, when it's a
+            stopgap, and the four failure modes to plan for before you record
+            anything.
+          </p>
+          <ul class="card__tags">
+            <li class="pill">sap</li>
+          </ul>
+          <p class="card__foot">
+            <span>Read post</span>
+            <svg class="card__arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+          </p>
+          <a class="card__stretch" href="posts/driving-sap-without-an-api.html">Read: Driving SAP when there's no API to call</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© <span data-year>2026</span> Gungun Gupta · Built by hand, no templates</p>
+    <ul class="footer__links">
+      <li><a href="../">Home</a></li>
+      <li><a href="../projects/">Projects</a></li>
+      <li><a href="../cv/gungun-cv.pdf" download>CV (PDF)</a></li>
+      <li><a href="../feed.xml">RSS</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>
