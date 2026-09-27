@@ -903,6 +903,8 @@ pre code {
   }
 }
 
+/* Displayed size. clamp(min, preferred, max) — it shrinks on narrow phones and
+   grows on wide screens. Change 17rem if you want it bigger or smaller. */
 .hero__portrait {
   position: relative;
   justify-self: center;
@@ -920,14 +922,11 @@ pre code {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  /* portrait.jpg is already a 680x680 square cropped to frame the head, so
+     cover + centre needs no offset. If you swap in a different photo, either
+     crop it to a square first (best), or bias it here — 0% = top, 50% = centre. */
   object-fit: cover;
-  /* Your photo is 900x1600 (9:16) going into a 1:1 circle. To cover, the
-     browser keeps only the middle ~56% of the height — which crops ~22% off
-     the top and 22% off the bottom, and 22% off the top of a phone photo
-     usually takes the top of your head with it.
-     Biasing the crop upward keeps the face in frame. If it still looks off,
-     nudge this number: 0% = top edge, 50% = centred, 100% = bottom edge. */
-  object-position: 50% 18%;
+  object-position: 50% 50%;
   background: var(--surface);
 }
 
