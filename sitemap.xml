@@ -2,21 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://YOURUSERNAME.github.io/</loc>
+    <loc>https://gungungupta7525.github.io/MyProfile/</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://YOURUSERNAME.github.io/projects/</loc>
+    <loc>https://gungungupta7525.github.io/MyProfile/projects/</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://YOURUSERNAME.github.io/blog/</loc>
+    <loc>https://gungungupta7525.github.io/MyProfile/blog/</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -25,42 +25,42 @@
   <!-- Keep <lastmod> in sync with the date shown on the page. -->
 
   <url>
-    <loc>https://YOURUSERNAME.github.io/projects/scraperagent.html</loc>
+    <loc>https://gungungupta7525.github.io/MyProfile/projects/scraperagent.html</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://YOURUSERNAME.github.io/projects/news-classifier-rag.html</loc>
+    <loc>https://gungungupta7525.github.io/MyProfile/projects/news-classifier-rag.html</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://YOURUSERNAME.github.io/projects/predict-ai.html</loc>
+    <loc>https://gungungupta7525.github.io/MyProfile/projects/predict-ai.html</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://YOURUSERNAME.github.io/blog/posts/ranking-web-search-results.html</loc>
+    <loc>https://gungungupta7525.github.io/MyProfile/blog/posts/ranking-web-search-results.html</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://YOURUSERNAME.github.io/blog/posts/when-rag-helps-a-classifier.html</loc>
+    <loc>https://gungungupta7525.github.io/MyProfile/blog/posts/when-rag-helps-a-classifier.html</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://YOURUSERNAME.github.io/blog/posts/driving-sap-without-an-api.html</loc>
+    <loc>https://gungungupta7525.github.io/MyProfile/blog/posts/driving-sap-without-an-api.html</loc>
     <lastmod>2026-06-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>

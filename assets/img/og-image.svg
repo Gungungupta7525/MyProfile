@@ -23,9 +23,9 @@
   <ellipse cx="130" cy="600" rx="330" ry="330" fill="url(#glowB)"/>
 
   <g font-family="Inter, ui-sans-serif, system-ui, sans-serif">
-    <!-- TODO: change "YOURUSERNAME.github.io" to your real domain -->
+    <!-- TODO: change "gungungupta7525.github.io" to your real domain -->
     <text x="80" y="140" font-size="30" fill="#8b98a9"
-          font-family="JetBrains Mono, monospace" letter-spacing="4">YOURUSERNAME.github.io</text>
+          font-family="JetBrains Mono, monospace" letter-spacing="4">gungungupta7525.github.io</text>
 
     <text x="80" y="265" font-size="88" font-weight="700" fill="#e8eef6" letter-spacing="-3">Gungun Gupta</text>
 

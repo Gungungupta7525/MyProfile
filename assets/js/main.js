@@ -451,7 +451,23 @@
   }
 
   /* ----------------------------------------------------------------------
-     11. Year stamp
+     11. Hero portrait fallback
+     If assets/img/portrait.jpg isn't there yet, remove the <img> so the
+     letter placeholder behind it shows through cleanly.
+     ---------------------------------------------------------------------- */
+
+  document.querySelectorAll("[data-portrait] img").forEach(function (img) {
+    var fail = function () {
+      img.remove();
+    };
+    // Covers both an outright 404 and a decode failure.
+    img.addEventListener("error", fail);
+    // If it already failed before this script ran, clean up immediately.
+    if (img.complete && img.naturalWidth === 0) fail();
+  });
+
+  /* ----------------------------------------------------------------------
+     12. Year stamp
      ---------------------------------------------------------------------- */
 
   document.querySelectorAll("[data-year]").forEach(function (el) {

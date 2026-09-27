@@ -43,17 +43,17 @@ python3 -m http.server 8000
 
 ## ⚠️ Before you publish — do these first
 
-Search the files for `YOURUSERNAME` and `TODO`. Every occurrence needs
+Search the files for `gungungupta7525` and `TODO`. Every occurrence needs
 replacing.
 
 | What | Where | Why it matters |
 |---|---|---|
-| `YOURUSERNAME` | `index.html`, `404.html`, `blog/index.html`, `projects/index.html`, all 3 case studies, all 3 posts, `feed.xml`, `sitemap.xml`, `robots.txt`, `assets/img/og-image.svg` | Social previews and canonical URLs will point at a domain that isn't yours. This is the one thing you must not miss. |
+| `gungungupta7525` | `index.html`, `404.html`, `blog/index.html`, `projects/index.html`, all 3 case studies, all 3 posts, `feed.xml`, `sitemap.xml`, `robots.txt`, `assets/img/og-image.svg` | Social previews and canonical URLs will point at a domain that isn't yours. This is the one thing you must not miss. |
 | GitHub URL | `index.html` contact section, 3 case studies | Currently guesses. Your resume hyperlinks to GitHub and LinkedIn but the URLs aren't recoverable from the PDF text — **send me the real ones.** |
 | LinkedIn URL | `index.html` contact section | Same. |
 | `TODO: your city` | `index.html` hero + contact | You never listed a location. "India" is currently in both places. |
 | Photo | `assets/img/portrait.jpg` | Square crop, ~800px wide. The hero currently shows a "G" placeholder. |
-| Repository links | 3 case studies | Point at `github.com/YOURUSERNAME/<slug>`. Add a live demo link for ScraperAgent if it's still up — that's the strongest single thing on the site. |
+| Repository links | 3 case studies | Point at `github.com/gungungupta7525/<slug>`. Add a live demo link for ScraperAgent if it's still up — that's the strongest single thing on the site. |
 | Certificate links | `index.html` certifications | Linking each cert to a verifiable page beats asserting it. |
 
 ## Content checklist
@@ -116,29 +116,52 @@ either way.
 
 ## Deploying to GitHub Pages
 
-```bash
-cd gungun-gupta-portfolio
-git init
-git add .
-git commit -m "Portfolio"
-git branch -M main
-git remote add origin git@github.com:YOURUSERNAME/gungun.github.io.git
-git push -u origin main
+This site is **already live** at:
+
+```
+https://gungungupta7525.github.io/MyProfile/
 ```
 
-Then in the repo: **Settings → Pages → Source → Deploy from a branch →
-`main` / `root`**. It goes live in about a minute.
+Repo: `Gungungupta7525/MyProfile` · Branch: `master` · Pages source: `master` / `root`
 
-Using a repo named `gungun.github.io` is the cleanest option, because it means
-your site lives at the domain root. See the note on absolute paths below.
+To publish a change:
 
-### If you use a different repo name
+```bash
+cd "C:\Users\user\OneDrive\Documents\gungun-gupta-portfolio"
+git add .
+git commit -m "Describe your change"
+git push
+```
 
-`404.html` has to use absolute paths (`/assets/...`) because it's served for any
-URL, which means it only works when your site is at the domain root. If you
-publish to `yoursite.github.io/portfolio/`, either add a `CNAME` custom domain,
-or accept that a visitor landing on a bad URL sees unstyled HTML. Everything
-else uses relative paths and works either way.
+That is the whole routine. It goes live in about a minute.
+
+### The `/MyProfile/` prefix
+
+Because the repo is named `MyProfile` rather than `gungungupta7525.github.io`,
+the site is served from a **subdirectory**. Every absolute URL therefore has to
+include `/MyProfile/`, and `404.html` cannot use root-relative paths.
+
+If you ever rename the repo to `gungungupta7525.github.io`, the site moves to
+the domain root and you must then:
+
+1. Search every file for `gungungupta7525.github.io/MyProfile/` and remove the
+   `/MyProfile` part
+2. Change `404.html` back to `/assets/...`, `/`, `/projects/` (no prefix)
+3. Change `manifest.webmanifest` `start_url` and `scope` back to `/`
+4. Leave every *relative* path alone — those work either way
+
+**Recommendation: don't rename.** The subdirectory version is working and the
+relative paths make the rest of the site immune to the question. A custom domain
+via a `CNAME` file is the nicer upgrade if you ever want a clean URL.
+
+### Adding a new file (blog post, case study)
+
+New pages are fine to add with relative links. Then sync the three lists that
+reference them by absolute URL, or they go stale:
+
+- `sitemap.xml` — add a `<url>` block
+- `feed.xml` — add an `<item>` block (blog posts only)
+- `index.html` — add a card in the relevant section
 
 ## Customising the look
 
