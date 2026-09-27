@@ -197,19 +197,20 @@
       <!-- ==============================================================
            ▼▼▼  YOUR PHOTO  ▼▼▼
 
-           Already done: assets/img/portrait.jpg is a 680x680 square,
-           cropped so the head fills ~70% of the circle.
+           Already done: assets/img/portrait.jpg is a 708x885 (4:5) crop,
+           framed on the head with your neck and shoulders visible.
 
-           To replace it: crop a SQUARE image (the hero shows it in a
-           circle, so a square is what you want) and save it over that
-           path. Around 680x680 is plenty — it displays at most 272px.
+           To replace it: crop to a 4:5 shape (portrait orientation) and
+           save it over that path. The hero shows it in a rounded rectangle,
+           so 4:5 is what fits without the browser re-cropping it. Around
+           710x890 is plenty — it displays at most 224px wide.
            Keep the file under ~150KB so the page stays fast.
 
            If the file is ever missing, the letter "G" shows instead of a
            broken-image icon — no code changes needed either way.
            ============================================================== -->
       <div class="hero__portrait" data-portrait>
-        <img src="assets/img/portrait.jpg" width="680" height="680"
+        <img src="assets/img/portrait.jpg" width="708" height="885"
              alt="Gungun Gupta" decoding="async">
         <span class="hero__portrait__initial" aria-hidden="true">G</span>
       </div>
